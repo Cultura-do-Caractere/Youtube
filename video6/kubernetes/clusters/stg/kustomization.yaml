@@ -8,6 +8,6 @@ patches:
       kind: Ingress
       name: golang-app
     patch: |-
-      - op: replace #action 
-        path: /spec/rules/0/host #resouirce we want to change
-        value: golang-app.stg
+      - op: replace
+        path: /spec/rules/0/host
+        value: golang-app-stg

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-app
+  labels:
+    app: golang-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-app
+  template:
+    metadata:
+      labels:
+        app: golang-app
+    spec:
+      containers:
+      - name: golang-app
+        image: ghcr.io/cultura-do-caractere/golang-app:0.0.1
+        ports:
+        - containerPort: 1323
