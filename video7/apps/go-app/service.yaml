@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: golang-app-svc
+spec:
+  selector:
+    app: golang-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 1323
