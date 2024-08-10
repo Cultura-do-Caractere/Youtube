@@ -6,4 +6,4 @@ resources:
   - image-repository.yaml
 images:
   - name: ghcr.io/cultura-do-caractere/golang-app # {"$imagepolicy": "cdc-dev:go-app:name"}
-    newTag: 0.0.25 # {"$imagepolicy": "cdc-dev:go-app:tag"}
+    newTag: 0.0.27 # {"$imagepolicy": "cdc-dev:go-app:tag"}
