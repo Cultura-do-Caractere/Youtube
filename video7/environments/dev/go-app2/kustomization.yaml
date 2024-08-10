@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: goapp2-ns
+resources:
+  - ../../../apps/go-app
+  - image-repository.yaml
+images:
+  - name: ghcr.io/cultura-do-caractere/golang-app
+    newName: golang-app2 # {"$imagepolicy": "cdc-dev:go-app:name"}
+    newTag: 0.0.0 # {"$imagepolicy": "cdc-dev:go-app:tag"}

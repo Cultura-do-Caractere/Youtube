@@ -3,7 +3,8 @@ name: CI and CD Go App
 on:
     push:
       paths:
-      - video7/**
+      - video7/go-app/**
+      - video7/environments/dev/go-app/**
 
 env:
     REGISTRY: ghcr.io

@@ -1,0 +1,44 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: go-app2
+  namespace: goapp2-ns
+spec:
+  image: ghcr.io/cultura-do-caractere/golang-app
+  interval: 5m
+  provider: generic
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: go-app2
+  namespace: goapp2-ns
+spec:
+  imageRepositoryRef:
+    name: go-app2
+    namespace: goapp2-ns
+  policy:
+    semver:
+      range: 0.0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: go-app2
+  namespace: flux-system
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system  
+  git:
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+    push:
+      branch: main
+  update:
+    path: ./video7/environments/dev/go-app2/
