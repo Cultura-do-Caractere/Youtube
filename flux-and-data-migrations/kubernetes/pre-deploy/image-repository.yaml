@@ -1,0 +1,44 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: python-app
+  namespace: python-app-ns
+spec:
+  image: ghcr.io/cultura-do-caractere/python-app
+  interval: 5m
+  provider: generic
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: python-app
+  namespace: python-app-ns
+spec:
+  imageRepositoryRef:
+    name: python-app
+    namespace: python-app-ns
+  policy:
+    semver:
+      range: 0.0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: python-app
+  namespace: flux-system
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system  
+  git:
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+    push:
+      branch: main
+  update:
+    path: ./flux-and-data-migrations/kubernetes/pre-deploy
