@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+spec:
+  template:
+    spec:
+      parallelism: 1
+      completions: 1 
+      restartPolicy: Never
+      containers:
+      - name: migration
+        image: ghcr.io/cultura-do-caractere/python-app:0.0.0
+        command: ["/usr/local/bin/alembic", "upgrade", "head"]
+        volumeMounts:
+        - name: database-volume
+          mountPath: /data
+      volumes:
+      - name: database-volume
+        hostPath:
+          path: /Users/alissonmachado/python-data

@@ -1,0 +1,41 @@
+name: CI and CD Python App
+
+on:
+    push:
+      paths:
+      - flux-and-data-migrations/**
+
+env:
+    REGISTRY: ghcr.io
+    IMAGE_NAME: cultura-do-caractere/python-app
+
+jobs:
+    build-and-push-image:
+      runs-on: ubuntu-latest
+
+      permissions:
+          contents: read
+          packages: write
+          attestations: write
+          id-token: write
+
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: flux-and-data-migrations/python-app/Dockerfile
+          push: true
+          tags: "ghcr.io/cultura-do-caractere/python-app:0.0.${{github.run_number}}"
