@@ -7,5 +7,5 @@ resources:
   - image-repository.yaml
   - db-migration.yaml
 images:
-  - name: ghcr.io/cultura-do-caractere/python-app:0.0.0 # {"$imagepolicy": "python-app-ns:python-app:name"}
-    newTag: 0.0.19 # {"$imagepolicy": "python-app-ns:python-app:tag"}
+  - name: ghcr.io/cultura-do-caractere/python-app # {"$imagepolicy": "python-app-ns:python-app:name"}
+    newTag: 0.0.23 # {"$imagepolicy": "python-app-ns:python-app:tag"}
