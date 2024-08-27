@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:      
+resources:
   - namespace.yaml
   - deployment.yaml
   - service.yaml
   - ingress.yaml
   - image-repository.yaml
 images:
-  - name: ghcr.io/cultura-do-caractere/python-app:0.0.0 # {"$imagepolicy": "python-app-ns:python-app:name"}
-    newTag: 0.0.19 # {"$imagepolicy": "python-app-ns:python-app:tag"}
+  - name: ghcr.io/cultura-do-caractere/python-app # {"$imagepolicy": "python-app-ns:python-app:name"}
+    newTag: 0.0.40 # {"$imagepolicy": "python-app-ns:python-app:tag"}

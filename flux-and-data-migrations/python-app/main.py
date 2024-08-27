@@ -14,4 +14,6 @@ def get_db():
 
 @app.get("/")
 def index():
-    return {"message": "Hello, I am a python app deployed by FluxCD"}
+    return {
+        "message": "Hello, I am a python app deployed by FluxCD ",
+    }

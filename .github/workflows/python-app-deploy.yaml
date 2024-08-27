@@ -3,7 +3,7 @@ name: CI and CD Python App
 on:
     push:
       paths:
-      - flux-and-data-migrations/python-app
+      - flux-and-data-migrations/**
 
 env:
     REGISTRY: ghcr.io
