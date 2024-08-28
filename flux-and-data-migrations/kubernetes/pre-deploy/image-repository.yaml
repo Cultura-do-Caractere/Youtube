@@ -2,21 +2,21 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: python-app
+  name: python-app-pre-deploy
   namespace: python-app-ns
 spec:
-  image: ghcr.io/cultura-do-caractere/python-app
+  image: ghcr.io/cultura-do-caractere/python-app-pre-deploy
   interval: 5m
   provider: generic
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: python-app
+  name: python-app-pre-deploy
   namespace: python-app-ns
 spec:
   imageRepositoryRef:
-    name: python-app
+    name: python-app-pre-deploy
     namespace: python-app-ns
   policy:
     semver:
@@ -25,7 +25,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: python-app
+  name: python-app-pre-deploy
   namespace: flux-system
 spec:
   interval: 30m
