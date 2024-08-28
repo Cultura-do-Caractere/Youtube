@@ -16,4 +16,5 @@ def get_db():
 def index():
     return {
         "message": "Hello, I am a python app deployed by FluxCD ",
+        "version":"1.0"
     }
