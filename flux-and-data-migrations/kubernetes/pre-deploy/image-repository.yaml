@@ -5,7 +5,7 @@ metadata:
   name: python-app-pre-deploy
   namespace: python-app-ns
 spec:
-  image: ghcr.io/cultura-do-caractere/python-app-pre-deploy
+  image: ghcr.io/cultura-do-caractere/python-app
   interval: 5m
   provider: generic
 ---
