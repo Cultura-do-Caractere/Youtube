@@ -28,3 +28,5 @@ systemctl restart squid.service
 Adicione o IP da sua VM nas configurações de proxy do seu navegador.
 ![alt text](imagens/image.png "Configuraçao do proxy")
 
+Altere o HTTPS proxy para o IP da sua maquina virtual (VPS)
+
