@@ -1,6 +1,8 @@
 # Como burlar uma restricao de internet utilizando squid
 
-Instale o squid no ubuntu
+Crie uma Maquina Virtual com [Ubuntu](https://ubuntu.com/) em um provedor qualquer como a [Digital Ocean](https://digitalocean.com) por exemplo.
+
+Instale o squid no [Ubuntu](https://ubuntu.com/)
 ```
 apt install squid
 ```
